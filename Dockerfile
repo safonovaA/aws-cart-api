@@ -11,7 +11,7 @@ FROM node:12.16.3-alpine
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci --production
+RUN npm ci --production && npm cache clean --force
 COPY --from=base /usr/src/app/dist ./dist
 
 ENV NODE_ENV=production
