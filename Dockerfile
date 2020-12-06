@@ -14,6 +14,6 @@ COPY package*.json ./
 RUN npm ci --production && npm cache clean --force
 COPY --from=base /usr/src/app/dist ./dist
 
-ENV NODE_ENV=production
+ENV PORT=8080
 EXPOSE 8080
 CMD ["node", "dist/main.js"]
